@@ -19,7 +19,7 @@ test('mobile device account top-up', async ({ page }) => {
     await expect(page.locator('#show_messages')).toHaveText('Doładowanie wykonane! 25,00PLN na numer 500 xxx xxx');
 });
 
-test.only('account balance after transaction confirmation', async ({ page }) => {
+test('account balance after transaction confirmation', async ({ page }) => {
     await page.goto('https://demo-bank.vercel.app/index.html');
     await page.getByTestId('login-input').fill('testerLO');
     await page.getByTestId('password-input').fill('12345678');
