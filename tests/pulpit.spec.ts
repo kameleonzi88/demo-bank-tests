@@ -1,4 +1,8 @@
 import { test, expect } from "@playwright/test";
+const url = "https://demo-bank.vercel.app/";
+    const userId = "testerLO";
+    const userPassword = "12345675";
+
 
 test.describe("Pulpit tests", () => {
   test.only("quick payment with correct data", async ({ page }) => {
@@ -33,8 +37,8 @@ test.describe("Pulpit tests", () => {
 
   test("quick payment with incorrect data", async ({ page }) => {
     await page.goto("https://demo-bank.vercel.app/");
-    await page.getByTestId("login-input").fill("testerLO");
-    await page.getByTestId("password-input").fill("12345675");
+    await page.getByTestId("login-input").fill(userId);
+    await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
 
     await page.locator("#widget_1_transfer_receiver").selectOption("2");
@@ -52,8 +56,8 @@ test.describe("Pulpit tests", () => {
 
   test("successful mobile top-up", async ({ page }) => {
     await page.goto("https://demo-bank.vercel.app/");
-    await page.getByTestId("login-input").fill("testerLO");
-    await page.getByTestId("password-input").fill("12345678");
+    await page.getByTestId("login-input").fill(userId);
+    await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
 
     await page.locator("#widget_1_topup_receiver").selectOption("500 xxx xxx");
@@ -70,8 +74,8 @@ test.describe("Pulpit tests", () => {
 
   test("successfull mobile top-up", async ({ page }) => {
     await page.goto("https://demo-bank.vercel.app/");
-    await page.getByTestId("login-input").fill("testerLO");
-    await page.getByTestId("password-input").fill("12345675");
+    await page.getByTestId("login-input").fill(userId);
+    await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
 
     await page.locator("#widget_1_topup_receiver").selectOption("500 xxx xxx");
