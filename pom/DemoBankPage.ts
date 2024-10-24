@@ -8,7 +8,7 @@ export class DemoBankPage {
   }
 
   logoLocator() {
-    return this.page.locator('//a[@href="/html/body/header/div/h1/a"]');
+    return this.page.locator('a.logo.login');
   }
 
   async navigateToHomePage() {
@@ -16,7 +16,7 @@ export class DemoBankPage {
   }
 
   async isLogoVisible(): Promise<boolean> {
-    await this.logoLocator().waitFor({ state: 'visible', timeout: 5000 });
+    await this.logoLocator().waitFor({ state: 'visible' });
     return await this.logoLocator().isVisible();
   }
 }
